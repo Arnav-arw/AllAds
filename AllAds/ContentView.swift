@@ -13,6 +13,8 @@ struct ContentView: View {
     @State var isBannerAdOn: Bool = false
     @State var isIntertitalAdOn: Bool = false
     
+    var viewModel = AdsViewModel()
+    
     var body: some View {
         VStack(alignment: .center) {
             
@@ -26,14 +28,10 @@ struct ContentView: View {
                   Text("Click to toggle banner ad")
               }
               Button {
-                  isIntertitalAdOn.toggle()
+                  viewModel.showInterstitial.toggle()
               } label: {
                   Text("Click to toggle intertital ad")
               }
-          }
-            
-          if isIntertitalAdOn {
-              EmptyView()
           }
             
           if isBannerAdOn {
